@@ -1,5 +1,5 @@
 name: hf_transformer_models
-display_name: HuggingFace Transformer Model
+display_name: HuggingFace Transformer Model Build Demo
 version: 24
 type: command
 description: This component downloads the current HuggingFace Transformer models for consumption in downstream tasks.
