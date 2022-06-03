@@ -1,5 +1,5 @@
 name: text_processor
-display_name: Generic Text Processor
+display_name: Generic Text Processor for Training
 version: 33
 type: command
 description: Generic text processor for downstream NLP tasks, used for Project Guttenberg books
