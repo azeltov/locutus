@@ -28,7 +28,7 @@ inputs:
   batch_size: 
     type: integer
     description: Batch size per step on each device.
-    default: 26
+    default: 12
   num_train_epochs: 
     type: integer
     description: Number of training epochs.
