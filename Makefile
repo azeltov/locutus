@@ -6,13 +6,19 @@ conda-activate:
 
 env-create:
 	az ml environment create --file ./environments/base-train/base_train.yml
+    az ml environment create -f ./environments/ptca-train/ptca_train.yml
 
 dataset-upload:
-	az ml data create --file raw_data.yml
+	az ml data create -f cloud/data.yml
 
 train:
 	az ml job create --file ./safe-driver/src/train/job.yml
 
+components:
+    az ml component create -f components/finetune-ptca.yml
+    az ml component create -f components/huggingface.yml
+    az ml component create -f components/register_model.yml
+    az ml component create -f components/process.yml    
 pipeline:
 	az ml job create --file ./pipeline.yml --stream
 

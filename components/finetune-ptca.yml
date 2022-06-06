@@ -56,7 +56,7 @@ code: .
 environment: azureml:ptca-hf-transformer-train:4
 distribution:
   type: pytorch
-  process_count_per_instance: 4
+  process_count_per_instance: 1
 command: >-
   python finetune.py 
   --model_path ${{inputs.weights_path}} 

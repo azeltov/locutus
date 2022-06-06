@@ -5,7 +5,7 @@ description: Register a GPT2 model finetuned with Homer books.
 type: pipeline
 experiment_name: homer-pipeline
 
-compute: azureml:nc24rs-v3-gpu-cluster
+compute: azureml:nc6v3cluster
 
 inputs:
   homer_dataset:
@@ -16,7 +16,7 @@ inputs:
 jobs:
   process:
     type: command
-    component: azureml:Text_Processor@latest
+    component: azureml:text_processor@latest
     inputs:    
       source: ${{parent.inputs.homer_dataset}}
     outputs:
@@ -25,7 +25,7 @@ jobs:
   
   huggingface:
     type: command
-    component: azureml:HF_Transformer_models@latest
+    component: azureml:hf_transformer_models@latest
     inputs:
       model_name: ${{parent.inputs.huggingface_model_name}}
     outputs:
@@ -33,9 +33,9 @@ jobs:
       tokenizer:
       config:
 
-  finetune-ptca:
+  fine_tuneptca:
     type: command
-    component: azureml:GPT2_Finetuning_PTCA@latest
+    component: azureml:gpt2_finetuning_ptca@latest
     inputs:
       weights_path: ${{parent.jobs.huggingface.outputs.weights}}
       tokenizer_path: ${{parent.jobs.huggingface.outputs.tokenizer}}
@@ -47,11 +47,11 @@ jobs:
       tokenizer_output:
       config_output:
 
-  register-model:
+  register_model:
     type: command
-    component: azureml:Register_GPT2_Model@latest
+    component: azureml:register_gpt2_model@latest
     inputs:
-      weights_input_path: ${{parent.jobs.finetune-ptca.outputs.weights_output}} 
-      tokenizer_input_path: ${{parent.jobs.finetune-ptca.outputs.tokenizer_output}}
-      config_input_path: ${{parent.jobs.finetune-ptca.outputs.config_output}}
+      weights_input_path: ${{parent.jobs.fine_tuneptca.outputs.weights_output}} 
+      tokenizer_input_path: ${{parent.jobs.fine_tuneptca.outputs.tokenizer_output}}
+      config_input_path: ${{parent.jobs.fine_tuneptca.outputs.config_output}}
       model_name: ${{parent.inputs.azureml_model_name}}
