@@ -28,7 +28,7 @@ inputs:
   batch_size: 
     type: integer
     description: Batch size per step on each device.
-    default: 9
+    default: 12
   num_train_epochs: 
     type: integer
     description: Number of training epochs.
@@ -44,11 +44,11 @@ outputs:
     type: uri_folder
   config_output:
     type: uri_folder
-code: finetune.py
+code: .
 environment: azureml:base-hf-transformer-train:5
 distribution:
   type: pytorch
-  process_count_per_instance: 4
+  process_count_per_instance: 1
 command: >-
   python finetune.py 
   --model_path ${{inputs.weights_path}} 
