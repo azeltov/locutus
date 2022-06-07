@@ -13,5 +13,6 @@ data-processed/
 *.zip
 .vscode/*.log
 .ipynb_checkpoints/
-*/.amlignore*
-.amlignore*
+*amlignore*
+*.ipynb.amltmp
+*-checkpoint*

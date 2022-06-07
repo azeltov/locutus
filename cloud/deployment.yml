@@ -2,12 +2,12 @@ $schema: https://azuremlschemas.azureedge.net/latest/managedOnlineDeployment.sch
 name: blue
 app_insights_enabled: True
 # invoke completions (Ctrl+Space, Cmd+Space) to see the list of models available
-model: azureml:model-gpt2:1
+model: azureml:model-gpt2:2
 code_configuration:
   code: "../"
   scoring_script: score.py
 # invoke completions (Ctrl+Space, Cmd+Space) to see the list of environments available
 environment: azureml:hf-transformers-inference:1
-instance_type: Standard_NC6s_v3
-endpoint_name: grippityep
+instance_type: STANDARD_NC6S_V3
+endpoint_name: buildaidemoaz
 instance_count: 2

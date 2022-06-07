@@ -5,6 +5,9 @@ This sample takes folks through the end-to-end process of deploying the
 on the writings of Homer. These are the demos that were shown in the 
 "Scaling responsible MLOps with Azure Machine Learning" session
 
+
+https://github.com/Azure-Samples/locutus/wiki
+
 ## Features
 
 This repo has a number of things that can be tried in isolation or
