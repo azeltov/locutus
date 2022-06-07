@@ -7,6 +7,9 @@ on the writings of Homer. These are the demos that were shown in the
 
 
 https://github.com/Azure-Samples/locutus/wiki
+https://mybuild.microsoft.com/en-US/sessions/cb3775d8-b5eb-4d02-8975-c376d30fdd17
+https://www.youtube.com/watch?app=desktop&v=pxY4i76LMSI&feature=youtu.be&ab_channel=BeatrizStollnitz
+
 
 ## Features
 
